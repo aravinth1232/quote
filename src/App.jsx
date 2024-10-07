@@ -1,14 +1,21 @@
-// import { useState } from 'react'
 import './App.css'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import SavedItems from "./components/SavedItems";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
-   <>
-    <div>
-      Quote generator
-    </div>
-   </>
-  )
+    <Router>
+      <Navbar />
+      <Toaster position="top-right" />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/saved" element={<SavedItems />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
